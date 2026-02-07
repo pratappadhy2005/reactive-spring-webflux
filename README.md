@@ -1,27 +1,39 @@
 # reactive-spring-webflux
-Spring Webflux
 
-#### Install Mongo DB in MAC
+A sample project demonstrating reactive programming using Spring WebFlux and Project Reactor.
 
-- Run the below command to install the **MongoDB**.
+## Prerequisites
 
-```
-brew services stop mongodb
-brew uninstall mongodb
+- Java 8 or higher
+- Gradle
+- MongoDB (for persistence)
 
-brew tap mongodb/brew
-brew install mongodb-community
-```
+## Technologies Used
 
--  How to restart MongoDB in your local machine.
+- Java
+- Spring Boot
+- Spring WebFlux
+- Project Reactor
+- Gradle
+- MongoDB
 
-```
-brew services restart mongodb-community
-```
+## Getting Started
 
-#### Install Mongo DB in Windows
+### Clone the repository### Build the project
+git clone https://github.com/pratappadhy2005/reactive-spring-webflux.git cd reactive-spring-webflux
 
-- Follow the steps in the below link to install Mongo db in Windows.
+### Build the project
+
+./gradlew build
+
+### Install MongoDB on Windows
+
+Follow the steps in the official documentation:
 
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
-# reactive-spring-webflux
+
+---
+
+## License
+
+This project is for learning purposes.
