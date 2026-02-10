@@ -28,6 +28,13 @@ public class FluxAndMonoGeneratorService {
         return namesFlux;
     }
 
+    public Flux<String> namesFluxFilter(){
+        return Flux.fromIterable(List.of("alex", "ben", "chloe"))
+                .filter(name -> name.length() > 3)
+                .map(String::toUpperCase)
+                .log();
+    }
+
     public static void main(String[] args) {
         FluxAndMonoGeneratorService fluxAndMonoGeneratorService = new FluxAndMonoGeneratorService();
         fluxAndMonoGeneratorService.namesFlux()
@@ -46,5 +53,9 @@ public class FluxAndMonoGeneratorService {
         System.out.println("********************");
         fluxAndMonoGeneratorService.namesFluxImmutability()
                 .subscribe(name -> System.out.println("Name is : " + name));
+
+        System.out.println("********************");
+        fluxAndMonoGeneratorService.namesFluxFilter()
+                .subscribe(name -> System.out.println("Name in Uppercase is : " + name));
     }
 }

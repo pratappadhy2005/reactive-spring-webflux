@@ -50,4 +50,17 @@ class FluxAndMonoGeneratorServiceTest {
                 .expectNext("alex", "ben", "chloe")
                 .verifyComplete();
     }
+
+    @Test
+    void namesFluxFilter() {
+        //given
+
+        //when
+        var namesFlux = fluxAndMonoGeneratorService.namesFluxFilter();
+
+        //then
+        StepVerifier.create(namesFlux)
+                .expectNext("ALEX", "CHLOE")
+                .verifyComplete();
+    }
 }
