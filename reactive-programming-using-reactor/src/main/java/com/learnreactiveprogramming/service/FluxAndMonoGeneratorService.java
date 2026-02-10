@@ -22,6 +22,12 @@ public class FluxAndMonoGeneratorService {
                 .log();
     }
 
+    public Flux<String> namesFluxImmutability() {
+        var namesFlux = Flux.fromIterable(List.of("alex", "ben", "chloe"));
+        namesFlux.map(String::toUpperCase);
+        return namesFlux;
+    }
+
     public static void main(String[] args) {
         FluxAndMonoGeneratorService fluxAndMonoGeneratorService = new FluxAndMonoGeneratorService();
         fluxAndMonoGeneratorService.namesFlux()
@@ -36,5 +42,9 @@ public class FluxAndMonoGeneratorService {
 
         fluxAndMonoGeneratorService.namesFluxMap()
                 .subscribe(name -> System.out.println("Name in Uppercase is : " + name));
+
+        System.out.println("********************");
+        fluxAndMonoGeneratorService.namesFluxImmutability()
+                .subscribe(name -> System.out.println("Name is : " + name));
     }
 }
