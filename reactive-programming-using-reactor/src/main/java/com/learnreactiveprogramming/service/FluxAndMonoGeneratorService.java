@@ -31,7 +31,7 @@ public class FluxAndMonoGeneratorService {
     public Flux<String> namesFluxFilter(){
         return Flux.fromIterable(List.of("alex", "ben", "chloe"))
                 .filter(name -> name.length() > 3)
-                .map(String::toUpperCase)
+                .map((s) -> s.toUpperCase().concat(" - filtered"))
                 .log();
     }
 
