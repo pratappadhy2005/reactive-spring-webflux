@@ -22,6 +22,19 @@ public class FluxAndMonoGeneratorService {
                 .log();
     }
 
+    public Flux<String> namesFluxFlatMap(int stringLength){
+        return Flux.fromIterable(List.of("alex", "ben", "chloe"))
+                .map(String::toUpperCase)
+                .filter(name -> name.length() > stringLength)
+                .flatMap(this::splitString)
+                .log();
+    }
+
+    public Flux<String> splitString(String name){
+        var charArray = name.split("");
+        return Flux.fromArray(charArray);
+    }
+
     public Flux<String> namesFluxImmutability() {
         var namesFlux = Flux.fromIterable(List.of("alex", "ben", "chloe"));
         namesFlux.map(String::toUpperCase);
